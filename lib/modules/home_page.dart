@@ -7,22 +7,30 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: DarkColors.background,
+      backgroundColor: LightColors.background,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           spacing: 25,
           children: [
-            qwe(DarkColors.background2),
-            qwe(DarkColors.focus),
-            qwe(DarkColors.primary),
+            qwe(LightColors.background2),
+            qwe(LightColors.focus),
+            qwe(LightColors.primary),
             Text(
               "data",
-              style: TextStyle(color: DarkColors.textAndIcon, fontSize: 30,fontWeight: FontWeight.bold),
+              style: TextStyle(
+                color: LightColors.textAndIcon,
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             Text(
               "data",
-              style: TextStyle(color: DarkColors.textAndIcon2, fontSize: 30,fontWeight: FontWeight.bold),
+              style: TextStyle(
+                color: LightColors.textAndIcon2,
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ],
         ),
