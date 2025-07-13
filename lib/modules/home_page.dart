@@ -1,5 +1,5 @@
+import 'package:contained_tab_bar_view/contained_tab_bar_view.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -7,45 +7,62 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Home Page", style: Get.theme.textTheme.titleSmall),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            spacing: 25,
-            children: [
-              Text("Merhaba", style: Get.theme.textTheme.bodyLarge),
-              Text("Merhaba", style: Get.theme.textTheme.bodyMedium),
-              Text("Merhaba", style: Get.theme.textTheme.bodySmall),
-              Text("Merhaba", style: Get.theme.textTheme.titleLarge),
-              Text("Merhaba", style: Get.theme.textTheme.titleMedium),
-              Text("Merhaba", style: Get.theme.textTheme.titleSmall),
-              Text("Merhaba", style: Get.theme.textTheme.labelLarge),
-              Text("Merhaba", style: Get.theme.textTheme.labelMedium),
-              Text("Merhaba", style: Get.theme.textTheme.labelSmall),
-              Text("Merhaba", style: Get.theme.textTheme.displayLarge),
-              Text("Merhaba", style: Get.theme.textTheme.displayMedium),
-              Text("Merhaba", style: Get.theme.textTheme.displaySmall),
-              SizedBox(height: 100),
-            ],
+      backgroundColor: const Color(0xfff5f6fa),
+      body: Padding(
+        padding: const EdgeInsets.only(top: 80),
+        child: ContainedTabBarView(
+          tabs: const [
+            Text('Alıştırmalar', style: TextStyle(fontWeight: FontWeight.bold)),
+            Text(
+              'İstatistikler',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+          ],
+          tabBarProperties: TabBarProperties(
+            height: 48,
+            width: 280,
+            alignment: TabBarAlignment.center,
+            position: TabBarPosition.top,
+            background: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(30),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withValues(alpha: 0.5),
+                    blurRadius: 8,
+                    offset: const Offset(0, 4),
+                  ),
+                ],
+              ),
+            ),
+            labelColor: Colors.white,
+            unselectedLabelColor: Colors.black87,
+            indicator: BoxDecoration(
+              borderRadius: BorderRadius.circular(30),
+              color: Colors.deepPurple,
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+            labelStyle: const TextStyle(fontSize: 14),
           ),
+          views: [
+            _buildPage(Colors.deepPurple.shade100),
+            _buildPage(Colors.teal.shade100),
+          ],
         ),
       ),
     );
   }
 
-  Widget qwe(Color color) {
+  Widget _buildPage(Color color) {
     return Container(
-      height: 100,
-      width: 200,
-
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
         color: color,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: const Center(
+        child: Text("Sayfa İçeriği", style: TextStyle(fontSize: 20)),
       ),
     );
   }
